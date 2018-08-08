@@ -6,8 +6,8 @@ class shot extends React.Component {
   render() {
     return (
         <article className='shot'>
-            <Cover />
-            <Stats />
+            <Cover image={ this.props.image }/>
+            <Stats v={ this.props.views } c={ this.props.comments} l={ this.props.likes }/>
         </article>
     );
   }
