@@ -1,6 +1,7 @@
 import React from 'react';
+
 import Cover from './Cover';
-import Stats from './Stats';
+import Stats from './stats/Stats';
 
 class shot extends React.Component {
   render() {

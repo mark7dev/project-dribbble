@@ -42,24 +42,6 @@ ul {
   width: 100%;
 }
 
-.shots__stats {
-  color: #aaa;
-  font-size: 11px;
-}
-
-.shots__list {
-  display: flex;
-  justify-content: flex-end;
-}
-
-.shots__list li {
-  margin-left: 5px;
-}
-
-.shots__list i {
-  margin-right: 5px;
-}
-
 .container {
   display: flex;
   flex-wrap: wrap;
