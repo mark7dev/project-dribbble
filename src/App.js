@@ -19,6 +19,22 @@ class App extends Component {
     return (
       <div>
         <Header />
+        <nav className='filters'>
+          <ul>
+            <li>
+              <a href='#'>All <i className='fa fa-chevron-down' /> </a>
+            </li>
+            <li>
+              <a href='#'>Popular <i className='fa fa-chevron-down' /> </a>
+            </li>
+            <li>
+              <a href='#'>Recent <i className='fa fa-chevron-down' /></a>
+            </li>
+            <li>
+              <a href='#'>Debut <i className='fa fa-chevron-down' /></a>
+            </li>
+          </ul>
+        </nav>
         <Shots />
         <p style={ styles }>Writen by { name }. { year } .</p> 
       </div>
