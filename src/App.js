@@ -15,23 +15,51 @@ const styles = {
 };
 
 class App extends Component {
+  constructor() {
+    super();
+
+    this.state = {
+      lang: 'en'
+    };
+  }
+
+  changeLanguage = (e) => {
+    this.setState({
+      lang: e.target.textContent.toLowerCase()
+    })
+  }
+
   render() {
     return (
       <div>
         <Header />
+        <button onClick= { this.changeLanguage }>ES</button>
+        <button onClick= { this.changeLanguage }>EN</button>
         <nav className='filters'>
           <ul>
             <li>
-              <a href='#'>All <i className='fa fa-chevron-down' /> </a>
+              <a href='#'>
+                { this.state.lang === 'en' ? 'All' : 'Todos' }
+                <i className='fa fa-chevron-down' />
+              </a>
             </li>
             <li>
-              <a href='#'>Popular <i className='fa fa-chevron-down' /> </a>
+              <a href='#'>
+                { this.state.lang === 'en' ? 'Popular' : 'Famosos' }
+                <i className='fa fa-chevron-down' />
+              </a>
             </li>
             <li>
-              <a href='#'>Recent <i className='fa fa-chevron-down' /></a>
+              <a href='#'>
+                { this.state.lang === 'en' ? 'Recent' : 'Ahora' }
+                <i className='fa fa-chevron-down' />
+              </a>
             </li>
             <li>
-              <a href='#'>Debut <i className='fa fa-chevron-down' /></a>
+              <a href='#'>
+                { this.state.lang === 'en' ? 'Debut' : 'Nuevos' }
+                <i className='fa fa-chevron-down' />
+              </a>
             </li>
           </ul>
         </nav>
