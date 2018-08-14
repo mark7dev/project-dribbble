@@ -81,3 +81,29 @@ ul {
   color: #BCBCBC;
   font-size: 12px;
 }
+
+.lang {
+  position: absolute;
+  top: 13px;
+  left: 20px;
+}
+
+ .btn {
+  height: 26px;
+  background-color: transparent;
+  border-radius: 3px;
+  font-size: 12px;
+  font-weight: bold;
+  border: 1px solid #EAEAEA;
+  color: #EAEAEA;
+  cursor: pointer;
+}
+
+ .btn:hover {
+  color: #444;
+  background-color: #EAEAEA;
+}
+
+ .btn + .btn {
+  margin-left: 5px;
+}

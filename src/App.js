@@ -7,6 +7,8 @@ import './App.css';
 
 import { name, year } from './data/author';
 
+import { translate, Trans } from 'react-i18next';
+
 const styles = {
   textAlign: 'center',
   margin: '35px 0',
@@ -15,90 +17,45 @@ const styles = {
 };
 
 class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      lang: 'en'
-    };
-  }
-
-  changeLanguage = (e) => {
-    this.setState({
-      lang: e.target.textContent.toLowerCase()
-    })
-  }
-
-  renderListBasedOnLanguage = () => {
-    if (this.state.lang === 'en') {
-      return (
-        <ul>
-          <li>
-            <a href='#'>
-              All
-              <i className='fa fa-chevron-down' />
-            </a>
-          </li>
-          <li>
-            <a href='#'>
-              Popular
-              <i className='fa fa-chevron-down' />
-            </a>
-          </li>
-          <li>
-            <a href='#'>
-              Recent
-              <i className='fa fa-chevron-down' />
-            </a>
-          </li>
-          <li>
-            <a href='#'>
-              Debut
-              <i className='fa fa-chevron-down' />
-            </a>
-          </li>
-        </ul>
-      );
-    } else {
-      return (
-        <ul>
-          <li>
-            <a href='#'>
-              Todos
-              <i className='fa fa-chevron-down' />
-            </a>
-          </li>
-          <li>
-            <a href='#'>
-              Famosos
-              <i className='fa fa-chevron-down' />
-            </a>
-          </li>
-          <li>
-            <a href='#'>
-              Ahora
-              <i className='fa fa-chevron-down' />
-            </a>
-          </li>
-          <li>
-            <a href='#'>
-              Nuevos
-              <i className='fa fa-chevron-down' />
-            </a>
-          </li>
-        </ul>
-      );
-    }
-  }
+changeLanguage = e => {
+  this.props.i18n.changeLanguage(e.target.textContent.toLowerCase());
+};
 
   render () {
     return (
       <div>
         <Header />
-        <button onClick= { this.changeLanguage }>ES</button>
-        <button onClick= { this.changeLanguage }>EN</button>
+        <div className='lang'>
+          <button onClick= { this.changeLanguage }>ES</button>
+          <button onClick= { this.changeLanguage }>EN</button>
+        </div>
         <nav className='filters'>
-          { this.renderListBasedOnLanguage() }
+          <ul>
+            <li>
+              <a href='#'>
+                <Trans>All</Trans>
+                <i className='fa fa-chevron-down' />
+              </a>
+            </li>
+            <li>
+              <a href='#'>
+                <Trans>Popular</Trans>
+                <i className='fa fa-chevron-down' />
+              </a>
+            </li>
+            <li>
+              <a href='#'>
+                <Trans>Recent</Trans>
+                <i className='fa fa-chevron-down' />
+              </a>
+            </li>
+            <li>
+              <a href='#'>
+                <Trans>Debut</Trans>
+                <i className='fa fa-chevron-down' />
+              </a>
+            </li>
+          </ul>
         </nav>
         <Shots />
         <p style={ styles }>Writen by { name }. { year } .</p> 
@@ -107,4 +64,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default translate('translations')(App);
