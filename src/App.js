@@ -29,39 +29,76 @@ class App extends Component {
     })
   }
 
-  render() {
+  renderListBasedOnLanguage = () => {
+    if (this.state.lang === 'en') {
+      return (
+        <ul>
+          <li>
+            <a href='#'>
+              All
+              <i className='fa fa-chevron-down' />
+            </a>
+          </li>
+          <li>
+            <a href='#'>
+              Popular
+              <i className='fa fa-chevron-down' />
+            </a>
+          </li>
+          <li>
+            <a href='#'>
+              Recent
+              <i className='fa fa-chevron-down' />
+            </a>
+          </li>
+          <li>
+            <a href='#'>
+              Debut
+              <i className='fa fa-chevron-down' />
+            </a>
+          </li>
+        </ul>
+      );
+    } else {
+      return (
+        <ul>
+          <li>
+            <a href='#'>
+              Todos
+              <i className='fa fa-chevron-down' />
+            </a>
+          </li>
+          <li>
+            <a href='#'>
+              Famosos
+              <i className='fa fa-chevron-down' />
+            </a>
+          </li>
+          <li>
+            <a href='#'>
+              Ahora
+              <i className='fa fa-chevron-down' />
+            </a>
+          </li>
+          <li>
+            <a href='#'>
+              Nuevos
+              <i className='fa fa-chevron-down' />
+            </a>
+          </li>
+        </ul>
+      );
+    }
+  }
+
+  render () {
     return (
       <div>
         <Header />
         <button onClick= { this.changeLanguage }>ES</button>
         <button onClick= { this.changeLanguage }>EN</button>
         <nav className='filters'>
-          <ul>
-            <li>
-              <a href='#'>
-                { this.state.lang === 'en' ? 'All' : 'Todos' }
-                <i className='fa fa-chevron-down' />
-              </a>
-            </li>
-            <li>
-              <a href='#'>
-                { this.state.lang === 'en' ? 'Popular' : 'Famosos' }
-                <i className='fa fa-chevron-down' />
-              </a>
-            </li>
-            <li>
-              <a href='#'>
-                { this.state.lang === 'en' ? 'Recent' : 'Ahora' }
-                <i className='fa fa-chevron-down' />
-              </a>
-            </li>
-            <li>
-              <a href='#'>
-                { this.state.lang === 'en' ? 'Debut' : 'Nuevos' }
-                <i className='fa fa-chevron-down' />
-              </a>
-            </li>
-          </ul>
+          { this.renderListBasedOnLanguage() }
         </nav>
         <Shots />
         <p style={ styles }>Writen by { name }. { year } .</p> 
